@@ -242,8 +242,8 @@ psql --version
 
 ## Instalação 🚀
 1. Clone o repositório
-   git clone https://github.com/seu-usuario/smart-routine-api.git
-   cd smart-routine-api
+   git clone https://github.com/ribeir099/TI2/tree/main/SmartRoutine/backend.git
+   cd backend
 
 2. Crie o banco de dados
 # Linux/Mac
