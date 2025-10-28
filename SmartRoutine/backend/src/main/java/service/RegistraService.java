@@ -28,7 +28,6 @@ public class RegistraService {
      */
     public Object getAll(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             return gson.toJson(registraDAO.getAll());
@@ -44,7 +43,6 @@ public class RegistraService {
      */
     public Object get(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -72,7 +70,6 @@ public class RegistraService {
      */
     public Object getByUsuario(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int usuarioId = Integer.parseInt(request.params(":usuarioId"));
@@ -92,7 +89,6 @@ public class RegistraService {
      */
     public Object getProximosVencimento(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int usuarioId = Integer.parseInt(request.params(":usuarioId"));
@@ -113,7 +109,6 @@ public class RegistraService {
      */
     public Object getVencidos(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int usuarioId = Integer.parseInt(request.params(":usuarioId"));
@@ -133,7 +128,6 @@ public class RegistraService {
      */
     public Object insert(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             Registra registra = gson.fromJson(request.body(), Registra.class);
@@ -178,7 +172,6 @@ public class RegistraService {
      */
     public Object update(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -220,7 +213,6 @@ public class RegistraService {
      */
     public Object delete(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));

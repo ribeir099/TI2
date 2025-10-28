@@ -28,7 +28,6 @@ public class ReceitaFavoritaService {
      */
     public Object getAll(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             return gson.toJson(receitaFavoritaDAO.getAll());
@@ -44,7 +43,6 @@ public class ReceitaFavoritaService {
      */
     public Object get(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -72,7 +70,6 @@ public class ReceitaFavoritaService {
      */
     public Object getByUsuario(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int usuarioId = Integer.parseInt(request.params(":usuarioId"));
@@ -92,7 +89,6 @@ public class ReceitaFavoritaService {
      */
     public Object getByReceita(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int receitaId = Integer.parseInt(request.params(":receitaId"));
@@ -112,7 +108,6 @@ public class ReceitaFavoritaService {
      */
     public Object checkFavorita(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int usuarioId = Integer.parseInt(request.params(":usuarioId"));
@@ -136,7 +131,6 @@ public class ReceitaFavoritaService {
      */
     public Object countByReceita(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int receitaId = Integer.parseInt(request.params(":receitaId"));
@@ -158,7 +152,6 @@ public class ReceitaFavoritaService {
      */
     public Object insert(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             ReceitaFavorita favorita = gson.fromJson(request.body(), ReceitaFavorita.class);
@@ -199,7 +192,6 @@ public class ReceitaFavoritaService {
      */
     public Object delete(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -232,7 +224,6 @@ public class ReceitaFavoritaService {
      */
     public Object deleteByUsuarioReceita(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int usuarioId = Integer.parseInt(request.params(":usuarioId"));

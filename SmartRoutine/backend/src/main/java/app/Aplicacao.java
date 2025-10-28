@@ -27,21 +27,21 @@ public class Aplicacao {
 
         // ==================== ROTAS DE USUÁRIO ====================
         path("/usuario", () -> {
-            get("", usuarioService::getAll);
             get("/:id", usuarioService::get);
+            get("", usuarioService::getAll);
+            post("/login", usuarioService::login);
             post("", usuarioService::insert);
             put("/:id", usuarioService::update);
             delete("/:id", usuarioService::delete);
-            post("/login", usuarioService::login);
         });
 
         // ==================== ROTAS DE ALIMENTO ====================
         path("/alimento", () -> {
-            get("", alimentoService::getAll);
-            get("/:id", alimentoService::get);
-            get("/categoria/:categoria", alimentoService::getByCategoria);
             get("/search", alimentoService::search);
             get("/categorias", alimentoService::getCategorias);
+            get("/categoria/:categoria", alimentoService::getByCategoria);
+            get("/:id", alimentoService::get);
+            get("", alimentoService::getAll);
             post("", alimentoService::insert);
             put("/:id", alimentoService::update);
             delete("/:id", alimentoService::delete);
@@ -49,11 +49,11 @@ public class Aplicacao {
 
         // ==================== ROTAS DE RECEITA ====================
         path("/receita", () -> {
-            get("", receitaService::getAll);
-            get("/:id", receitaService::get);
             get("/search", receitaService::search);
             get("/tempo/:tempo", receitaService::getByTempo);
             get("/tag/:tag", receitaService::getByTag);
+            get("/:id", receitaService::get);
+            get("", receitaService::getAll);
             post("", receitaService::insert);
             put("/:id", receitaService::update);
             delete("/:id", receitaService::delete);
@@ -61,11 +61,11 @@ public class Aplicacao {
 
         // ==================== ROTAS DE REGISTRA ====================
         path("/registra", () -> {
-            get("", registraService::getAll);
-            get("/:id", registraService::get);
-            get("/usuario/:usuarioId", registraService::getByUsuario);
-            get("/usuario/:usuarioId/vencimento/:dias", registraService::getProximosVencimento);
             get("/usuario/:usuarioId/vencidos", registraService::getVencidos);
+            get("/usuario/:usuarioId/vencimento/:dias", registraService::getProximosVencimento);
+            get("/usuario/:usuarioId", registraService::getByUsuario);
+            get("/:id", registraService::get);
+            get("", registraService::getAll);
             post("", registraService::insert);
             put("/:id", registraService::update);
             delete("/:id", registraService::delete);
@@ -73,15 +73,15 @@ public class Aplicacao {
 
         // ==================== ROTAS DE RECEITAS FAVORITAS ====================
         path("/favoritas", () -> {
-            get("", receitaFavoritaService::getAll);
-            get("/:id", receitaFavoritaService::get);
-            get("/usuario/:usuarioId", receitaFavoritaService::getByUsuario);
-            get("/receita/:receitaId", receitaFavoritaService::getByReceita);
             get("/check/:usuarioId/:receitaId", receitaFavoritaService::checkFavorita);
+            get("/usuario/:usuarioId", receitaFavoritaService::getByUsuario);
             get("/receita/:receitaId/count", receitaFavoritaService::countByReceita);
+            get("/receita/:receitaId", receitaFavoritaService::getByReceita);
+            get("/:id", receitaFavoritaService::get);
+            get("", receitaFavoritaService::getAll);
             post("", receitaFavoritaService::insert);
-            delete("/:id", receitaFavoritaService::delete);
             delete("/usuario/:usuarioId/receita/:receitaId", receitaFavoritaService::deleteByUsuarioReceita);
+            delete("/:id", receitaFavoritaService::delete);
         });
 
         System.out.println("===========================================");

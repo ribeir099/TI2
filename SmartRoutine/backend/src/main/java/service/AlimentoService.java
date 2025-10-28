@@ -22,7 +22,6 @@ public class AlimentoService {
      */
     public Object getAll(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             return gson.toJson(alimentoDAO.getAll());
@@ -38,7 +37,6 @@ public class AlimentoService {
      */
     public Object get(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -66,7 +64,6 @@ public class AlimentoService {
      */
     public Object getByCategoria(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             String categoria = request.params(":categoria");
@@ -83,7 +80,6 @@ public class AlimentoService {
      */
     public Object search(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             String query = request.queryParams("q");
@@ -104,7 +100,6 @@ public class AlimentoService {
      */
     public Object getCategorias(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             return gson.toJson(alimentoDAO.getCategorias());
@@ -120,7 +115,6 @@ public class AlimentoService {
      */
     public Object insert(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             Alimento alimento = gson.fromJson(request.body(), Alimento.class);
@@ -150,7 +144,6 @@ public class AlimentoService {
      */
     public Object update(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -192,7 +185,6 @@ public class AlimentoService {
      */
     public Object delete(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));

@@ -28,7 +28,6 @@ public class UsuarioService {
      */
     public Object getAll(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             return gson.toJson(usuarioDAO.getAll());
@@ -44,7 +43,6 @@ public class UsuarioService {
      */
     public Object get(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -72,7 +70,6 @@ public class UsuarioService {
      */
     public Object insert(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             Usuario usuario = gson.fromJson(request.body(), Usuario.class);
@@ -118,7 +115,6 @@ public class UsuarioService {
      */
     public Object update(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -167,7 +163,6 @@ public class UsuarioService {
      */
     public Object delete(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             int id = Integer.parseInt(request.params(":id"));
@@ -200,7 +195,6 @@ public class UsuarioService {
      */
     public Object login(Request request, Response response) {
         response.type("application/json");
-        response.header("Access-Control-Allow-Origin", "*");
 
         try {
             LoginRequest loginRequest = gson.fromJson(request.body(), LoginRequest.class);
