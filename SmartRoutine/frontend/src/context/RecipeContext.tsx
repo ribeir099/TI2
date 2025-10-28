@@ -1,25 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { Receita, ReceitaFavorita } from '../types';
-import { receitaService } from '../services/receitaService';
-import { favoritasService } from '../services/favoritasService';
+import { Receita, ReceitaFavorita, RecipeContextType } from '@/typings';
 import { useAuth } from './AuthContext';
 import { useNotification } from './NotificationContext';
+import { receitaService, favoritasService } from '@/services';
 
-interface RecipeContextType {
-  recipes: Receita[];
-  favorites: ReceitaFavorita[];
-  loading: boolean;
-  addRecipe: (recipe: Omit<Receita, 'id'>) => Promise<void>;
-  updateRecipe: (id: number, recipe: Partial<Receita>) => Promise<void>;
-  deleteRecipe: (id: number) => Promise<void>;
-  toggleFavorite: (receitaId: number) => Promise<void>;
-  isFavorite: (receitaId: number) => boolean;
-  refreshRecipes: () => Promise<void>;
-  searchRecipes: (query: string) => Promise<Receita[]>;
-  getRecipesByTempo: (tempo: number) => Promise<Receita[]>;
-  getRecipesByTag: (tag: string) => Promise<Receita[]>;
-  getFavoriteRecipes: () => Receita[];
-}
+
 
 const RecipeContext = createContext<RecipeContextType | undefined>(undefined);
 

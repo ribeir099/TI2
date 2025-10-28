@@ -1,6 +1,6 @@
 import { api } from './api';
 import { handleApiError } from './errorHandler';
-import { User, LoginCredentials, SignupData } from '../types';
+import { User, LoginCredentials, SignupData } from '@/typings';
 
 export const authService = {
   /**

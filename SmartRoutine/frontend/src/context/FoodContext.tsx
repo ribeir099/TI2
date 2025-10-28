@@ -1,33 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { Registra, Alimento } from '../types';
-import { registraService } from '../services/registraService';
-import { alimentoService } from '../services/alimentoService';
+import { Registra, Alimento, FoodContextType } from '@/typings';
 import { useAuth } from './AuthContext';
 import { useNotification } from './NotificationContext';
-
-interface FoodContextType {
-  // Registros (Compras)
-  foodItems: Registra[];
-  loading: boolean;
-  addFoodItem: (item: Omit<Registra, 'id'>) => Promise<void>;
-  updateFoodItem: (id: number, item: Partial<Registra>) => Promise<void>;
-  deleteFoodItem: (id: number) => Promise<void>;
-  refreshFoodItems: () => Promise<void>;
-
-  // Estatísticas
-  expiringItems: Registra[];
-  expiredItems: Registra[];
-  totalItems: number;
-
-  // Alimentos (Catálogo)
-  alimentos: Alimento[];
-  alimentosLoading: boolean;
-  categorias: string[];
-  getAlimentosByCategoria: (categoria: string) => Promise<Alimento[]>;
-  searchAlimentos: (query: string) => Promise<Alimento[]>;
-  addAlimento: (alimento: Omit<Alimento, 'id'>) => Promise<void>;
-  refreshAlimentos: () => Promise<void>;
-}
+import { alimentoService, registraService } from '@/services';
 
 const FoodContext = createContext<FoodContextType | undefined>(undefined);
 

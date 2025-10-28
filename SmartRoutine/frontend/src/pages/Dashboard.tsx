@@ -2,34 +2,25 @@ import React, { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import { Navigation } from '../components/layout/Navigation';
-import { StatsCard } from '../components/shared/StatsCard';
-import { FoodItemCard } from '../components/shared/FoodItemCard';
-import { RecipeCard } from '../components/shared/RecipeCard';
-import { EmptyState } from '../components/shared/EmptyState';
-import { LoadingSpinner } from '../components/shared/LoadingSpinner';
-import { AlertMessage } from '../components/shared/AlertMessage';
-import { useAuth } from '../context/AuthContext';
-import { useFood } from '../context/FoodContext';
-import { useRecipe } from '../context/RecipeContext';
-import { useNotification } from '../context/NotificationContext';
-import { Page } from '../types';
+
 import {
   Package,
   AlertTriangle,
   Heart,
   ChefHat,
   TrendingUp,
-  TrendingDown,
   Calendar,
-  Clock,
   ArrowRight,
   ShoppingCart,
   Sparkles,
   AlertCircle
 } from 'lucide-react';
-import { formatDate, daysUntilExpiry } from '../utils/date';
-import { calculatePantryStats } from '../utils/calculations';
+
+import { LoadingSpinner, StatsCard, AlertMessage, EmptyState, RecipeCard } from '@/components/shared';
+import { Navigation } from '@/components/layout';
+import { useAuth, useFood, useRecipe, useNotification } from '@/context';
+import { Page } from '@/typings';
+import { calculatePantryStats, formatDate } from '@/utils';
 
 interface DashboardProps {
   onNavigate: (page: Page) => void;
@@ -81,7 +72,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
 
   const stats = calculatePantryStats(foodItems);
   const recentRecipes = recipes.slice(0, 3);
-  const topExpiringItems = [...expiringItems, ...expiredItems].slice(0, 5);
+  //const topExpiringItems = [...expiringItems, ...expiredItems].slice(0, 5);
 
   const loading = foodLoading || recipeLoading;
 

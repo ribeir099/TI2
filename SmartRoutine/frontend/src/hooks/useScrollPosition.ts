@@ -1,65 +1,61 @@
+import { ScrollPosition } from '@/typings';
 import { useState, useEffect } from 'react';
-
-interface ScrollPosition {
-    x: number;
-    y: number;
-}
 
 /**
 * Hook para obter posição do scroll
 */
 export function useScrollPosition(): ScrollPosition {
-    const [scrollPosition, setScrollPosition] = useState<ScrollPosition>({
-        x: 0,
-        y: 0,
-    });
+  const [scrollPosition, setScrollPosition] = useState<ScrollPosition>({
+    x: 0,
+    y: 0,
+  });
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition({
-                x: window.scrollX,
-                y: window.scrollY,
-            });
-        };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition({
+        x: window.scrollX,
+        y: window.scrollY,
+      });
+    };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-        handleScroll();
+    handleScroll();
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-    return scrollPosition;
+  return scrollPosition;
 }
 
 /**
 * Hook para detectar direção do scroll
 */
 export function useScrollDirection() {
-    const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
-    const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-            if (currentScrollY > lastScrollY) {
-                setScrollDirection('down');
-            } else if (currentScrollY < lastScrollY) {
-                setScrollDirection('up');
-            }
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
 
-            setLastScrollY(currentScrollY);
-        };
+      setLastScrollY(currentScrollY);
+    };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [lastScrollY]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
-    return scrollDirection;
+  return scrollDirection;
 }

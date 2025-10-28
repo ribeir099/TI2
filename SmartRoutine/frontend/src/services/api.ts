@@ -104,72 +104,72 @@ api.interceptors.response.use(
       const data = error.response.data as any;
 
       switch (status) {
-        case 400:
-          // Bad Request
-          if (IS_DEVELOPMENT) {
-            console.warn('⚠️ Bad Request:', data?.error || data?.message);
-          }
-          break;
+      case 400:
+        // Bad Request
+        if (IS_DEVELOPMENT) {
+          console.warn('⚠️ Bad Request:', data?.error || data?.message);
+        }
+        break;
 
-        case 401:
-          // Não autorizado - Limpar token e redirecionar
-          console.warn('🔒 Não autorizado - Token inválido ou expirado');
-          storageService.removeToken();
-          storageService.removeUser();
+      case 401:
+        // Não autorizado - Limpar token e redirecionar
+        console.warn('🔒 Não autorizado - Token inválido ou expirado');
+        storageService.removeToken();
+        storageService.removeUser();
 
-          // Evitar loop infinito
-          if (window.location.pathname !== '/' && !window.location.pathname.includes('login')) {
-            window.location.href = '/';
-          }
-          break;
+        // Evitar loop infinito
+        if (window.location.pathname !== '/' && !window.location.pathname.includes('login')) {
+          window.location.href = '/';
+        }
+        break;
 
-        case 403:
-          // Acesso negado
-          console.error('🚫 Acesso negado');
-          break;
+      case 403:
+        // Acesso negado
+        console.error('🚫 Acesso negado');
+        break;
 
-        case 404:
-          // Não encontrado
-          if (IS_DEVELOPMENT) {
-            console.warn('🔍 Recurso não encontrado:', error.config?.url);
-          }
-          break;
+      case 404:
+        // Não encontrado
+        if (IS_DEVELOPMENT) {
+          console.warn('🔍 Recurso não encontrado:', error.config?.url);
+        }
+        break;
 
-        case 409:
-          // Conflito (ex: email duplicado)
-          console.warn('⚠️ Conflito:', data?.error || 'Recurso já existe');
-          break;
+      case 409:
+        // Conflito (ex: email duplicado)
+        console.warn('⚠️ Conflito:', data?.error || 'Recurso já existe');
+        break;
 
-        case 422:
-          // Validação falhou
-          console.warn('⚠️ Erro de validação:', data?.errors || data?.error);
-          break;
+      case 422:
+        // Validação falhou
+        console.warn('⚠️ Erro de validação:', data?.errors || data?.error);
+        break;
 
-        case 429:
-          // Too Many Requests - Retry após delay
-          console.warn('⏳ Muitas requisições - aguardando...');
-          if (!originalRequest._retry) {
-            originalRequest._retry = true;
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            return api(originalRequest);
-          }
-          break;
+      case 429:
+        // Too Many Requests - Retry após delay
+        console.warn('⏳ Muitas requisições - aguardando...');
+        if (!originalRequest._retry) {
+          originalRequest._retry = true;
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          return api(originalRequest);
+        }
+        break;
 
-        case 500:
-        case 502:
-        case 503:
-        case 504:
-          // Erros de servidor - Retry uma vez
-          console.error('🔥 Erro no servidor');
-          if (!originalRequest._retry) {
-            originalRequest._retry = true;
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            return api(originalRequest);
-          }
-          break;
+      case 500:
+      case 502:
+      case 503:
+      case 504:
+        // Erros de servidor - Retry uma vez
+        console.error('🔥 Erro no servidor');
+        if (!originalRequest._retry) {
+          originalRequest._retry = true;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          return api(originalRequest);
+        }
+        break;
 
-        default:
-          console.error(`❌ Erro ${status}:`, error.response.statusText);
+      default:
+        console.error(`❌ Erro ${status}:`, error.response.statusText);
       }
     } else if (error.request) {
       // Requisição foi feita mas não houve resposta

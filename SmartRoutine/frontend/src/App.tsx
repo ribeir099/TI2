@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppProvider, useAuth } from './context';
 import { LoadingSpinner } from './components/shared';
-import { Page } from './types';
+import { Page } from './typings';
 
 // Pages
 import { Home } from './pages/Home';
@@ -53,27 +53,27 @@ function AppContent() {
   // Rotas públicas (sem autenticação)
   if (!user) {
     switch (currentPage) {
-      case 'login':
-        return <Login onNavigate={navigate} />;
-      case 'signup':
-        return <Signup onNavigate={navigate} />;
-      default:
-        return <Home onNavigate={navigate} />;
+    case 'login':
+      return <Login onNavigate={navigate} />;
+    case 'signup':
+      return <Signup onNavigate={navigate} />;
+    default:
+      return <Home onNavigate={navigate} />;
     }
   }
 
   // Rotas privadas (requerem autenticação)
   switch (currentPage) {
-    case 'dashboard':
-      return <Dashboard onNavigate={navigate} />;
-    case 'pantry':
-      return <Pantry onNavigate={navigate} />;
-    case 'recipes':
-      return <Recipes onNavigate={navigate} />;
-    case 'profile':
-      return <Profile onNavigate={navigate} />;
-    default:
-      return <Dashboard onNavigate={navigate} />;
+  case 'dashboard':
+    return <Dashboard onNavigate={navigate} />;
+  case 'pantry':
+    return <Pantry onNavigate={navigate} />;
+  case 'recipes':
+    return <Recipes onNavigate={navigate} />;
+  case 'profile':
+    return <Profile onNavigate={navigate} />;
+  default:
+    return <Dashboard onNavigate={navigate} />;
   }
 }
 

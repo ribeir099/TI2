@@ -1,3 +1,5 @@
+import { NotificationType } from "../types";
+
 export interface User {
     id: number;
     nome: string;
@@ -63,4 +65,10 @@ export interface ReceitaFavorita {
     dataAdicao: string;
 }
 
-export type Page = 'home' | 'login' | 'signup' | 'dashboard' | 'pantry' | 'recipes' | 'profile';
+export interface Notification {
+    id: string;
+    type: NotificationType;
+    title?: string;
+    message: string;
+    duration?: number;
+}

@@ -3,17 +3,7 @@ import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
 import { Button } from '../ui/button';
 import { CheckCircle, X, AlertTriangle, Info, AlertCircle } from 'lucide-react';
 import { cn } from '../ui/utils';
-
-type AlertType = 'success' | 'error' | 'warning' | 'info';
-
-interface AlertMessageProps {
-  type: AlertType;
-  title?: string;
-  message: string;
-  onClose?: () => void;
-  className?: string;
-  dismissible?: boolean;
-}
+import { AlertMessageProps } from '@/typings';
 
 const alertConfig = {
   success: {

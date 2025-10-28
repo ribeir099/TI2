@@ -10,7 +10,7 @@ import { useAuth } from '../context/AuthContext';
 import { getErrorMessage } from '../services/errorHandler';
 import { ArrowLeft, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import smartRoutineLogo from '../assets/logo.png';
-import { Page } from '@/types';
+import { Page } from '@/typings';
 
 interface LoginProps {
   onNavigate: (page: Page) => void;

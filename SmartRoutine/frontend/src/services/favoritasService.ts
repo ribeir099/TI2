@@ -1,6 +1,6 @@
 import { api } from './api';
 import { handleApiError } from './errorHandler';
-import { ReceitaFavorita } from '../types';
+import { ReceitaFavorita } from '@/typings';
 
 export const favoritasService = {
   /**
