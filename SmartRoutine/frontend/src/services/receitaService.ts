@@ -1,5 +1,6 @@
 import { api } from './api';
 import { handleApiError } from './errorHandler';
+
 import { Receita } from '@/typings';
 
 export const receitaService = {

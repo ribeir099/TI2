@@ -1,8 +1,3 @@
-import React from 'react';
-import { Button } from '../ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Badge } from '../ui/badge';
-import { Separator } from '../ui/separator';
 import {
   Home,
   Package,
@@ -13,10 +8,16 @@ import {
   AlertTriangle,
   Heart,
 } from 'lucide-react';
+import React from 'react';
+
+import smartRoutineLogo from '../../assets/logo.png';
 import { useAuth } from '../../context/AuthContext';
 import { useFood } from '../../context/FoodContext';
 import { useRecipe } from '../../context/RecipeContext';
-import smartRoutineLogo from '../../assets/logo.png';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
+import { Separator } from '../ui/separator';
 import { cn } from '../ui/utils';
 
 interface SidebarProps {

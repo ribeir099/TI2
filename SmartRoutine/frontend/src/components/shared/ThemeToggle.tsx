@@ -1,4 +1,6 @@
+import { Sun, Moon, Monitor, Check } from 'lucide-react';
 import React from 'react';
+
 import { Button } from '../ui/button';
 import {
   DropdownMenu,
@@ -6,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
-import { Sun, Moon, Monitor, Check } from 'lucide-react';
+
 import { useTheme } from '@/context/ThemeContext';
 
 export const ThemeToggle: React.FC = () => {

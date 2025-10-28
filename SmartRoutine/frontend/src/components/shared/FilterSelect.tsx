@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Label } from '../ui/label';
 import {
   Select,
   SelectContent,
@@ -6,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../ui/select';
-import { Label } from '../ui/label';
+
 import { FilterSelectProps } from '@/typings';
 
 export const FilterSelect: React.FC<FilterSelectProps> = ({

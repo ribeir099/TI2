@@ -1,8 +1,10 @@
+import { CheckCircle, X, AlertTriangle, Info, AlertCircle } from 'lucide-react';
 import React from 'react';
+
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
 import { Button } from '../ui/button';
-import { CheckCircle, X, AlertTriangle, Info, AlertCircle } from 'lucide-react';
 import { cn } from '../ui/utils';
+
 import { AlertMessageProps } from '@/typings';
 
 const alertConfig = {

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { AppProvider, useAuth } from './context';
+
 import { LoadingSpinner } from './components/shared';
-import { Page } from './typings';
+import { AppProvider, useAuth } from './context';
 import { Login, Signup, Dashboard, Pantry, Recipes, Profile, Home } from './pages';
+import { Page } from './typings';
 
 /**
 * Componente interno que gerencia roteamento e autenticação

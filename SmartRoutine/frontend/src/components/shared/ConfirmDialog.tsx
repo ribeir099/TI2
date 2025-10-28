@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,6 +10,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '../ui/alert-dialog';
+
 import { ConfirmDialogProps } from '@/typings';
 
 export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({

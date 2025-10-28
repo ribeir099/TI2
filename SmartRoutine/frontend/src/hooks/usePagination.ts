@@ -1,5 +1,6 @@
-import { UsePaginationProps, UsePaginationReturn } from '@/typings';
 import { useState, useMemo } from 'react';
+
+import { UsePaginationProps, UsePaginationReturn } from '@/typings';
 
 /**
 * Hook para paginação de arrays

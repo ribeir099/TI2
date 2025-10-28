@@ -1,8 +1,9 @@
+import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 import React from 'react';
+
+import smartRoutineLogo from '../../assets/logo.png';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
-import smartRoutineLogo from '../../assets/logo.png';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();

@@ -1,5 +1,6 @@
 import { api } from './api';
 import { handleApiError } from './errorHandler';
+
 import { Alimento } from '@/typings';
 
 export const alimentoService = {

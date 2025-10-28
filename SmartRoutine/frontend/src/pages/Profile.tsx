@@ -1,13 +1,3 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Separator } from '@/components/ui/separator';
-import { Switch } from '@/components/ui/switch';
 import {
   User,
   Mail,
@@ -28,14 +18,25 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { PasswordFormData, ProfileFormData, ProfileProps } from '@/typings';
-import { calculateAge, getInitials, formatDate } from '@/utils';
-import { getErrorMessage } from '@/services';
+import React, { useState } from 'react';
+
 import { Navigation, PageHeader } from '@/components/layout';
+import { LoadingSpinner, StatsCard } from '@/components/shared';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
+import { Switch } from '@/components/ui/switch';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth, useFood, useRecipe } from '@/context';
 import { useForm, useToast, validators } from '@/hooks';
-import { LoadingSpinner, StatsCard } from '@/components/shared';
+import { getErrorMessage } from '@/services';
+import { PasswordFormData, ProfileFormData, ProfileProps } from '@/typings';
+import { calculateAge, getInitials, formatDate } from '@/utils';
 
 export const Profile: React.FC<ProfileProps> = ({ onNavigate }) => {
   const { user, updateUser, deleteAccount, logout } = useAuth();

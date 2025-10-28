@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
-import { AlertType, Page, ValidationRule } from "../types";
 import { LucideIcon } from "lucide-react";
+import { ReactNode } from "react";
+
+import { AlertType, Page, ValidationRule } from "../types";
 import { FilterOption } from "./elements";
 import { Receita, Registra } from "./entities";
 

@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { Registra, Alimento, FoodContextType } from '@/typings';
+
 import { useAuth } from './AuthContext';
 import { useNotification } from './NotificationContext';
+
 import { alimentoService, registraService } from '@/services';
+import { Registra, Alimento, FoodContextType } from '@/typings';
 
 const FoodContext = createContext<FoodContextType | undefined>(undefined);
 

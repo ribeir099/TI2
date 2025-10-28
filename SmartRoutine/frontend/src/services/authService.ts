@@ -1,5 +1,6 @@
 import { api } from './api';
 import { handleApiError } from './errorHandler';
+
 import { User, LoginCredentials, SignupData } from '@/typings';
 
 export const authService = {
@@ -84,7 +85,7 @@ export const authService = {
         headers: { Authorization: `Bearer ${token}` },
       });
       return true;
-    } catch (error) {
+    } catch (_) {
       return false;
     }
   },

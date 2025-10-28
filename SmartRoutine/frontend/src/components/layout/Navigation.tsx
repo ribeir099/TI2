@@ -1,16 +1,3 @@
-import React, { useState } from 'react';
-import { Button } from '../ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
-import { Badge } from '../ui/badge';
 import {
   Home,
   Package,
@@ -23,11 +10,27 @@ import {
   AlertTriangle,
   LucideIcon
 } from 'lucide-react';
+import React, { useState } from 'react';
+
+import smartRoutineLogo from '../../assets/logo.png';
 import { useAuth } from '../../context/AuthContext';
 import { useFood } from '../../context/FoodContext';
-import smartRoutineLogo from '../../assets/logo.png';
-import { Page } from '@/typings';
 import { ThemeToggle } from '../shared/ThemeToggle';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '../ui/dropdown-menu';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+
+import { Page } from '@/typings';
+
 
 interface NavigationProps {
   currentPage: string;

@@ -1,10 +1,13 @@
-import React from 'react';
-import { Card, CardContent } from '../ui/card';
-import { Button } from '../ui/button';
 import { Edit, Trash2, Package } from 'lucide-react';
-import { FoodItemCardProps } from '@/typings';
+import React from 'react';
+
 import { ExpiryBadge } from './ExpiryBadge';
+import { Button } from '../ui/button';
+import { Card, CardContent } from '../ui/card';
 import { cn } from '../ui/utils';
+
+import { FoodItemCardProps } from '@/typings';
+
 
 export const FoodItemCard: React.FC<FoodItemCardProps> = ({
   item,

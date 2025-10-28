@@ -1,15 +1,16 @@
+import { ArrowLeft, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import React, { useState } from 'react';
+
+import smartRoutineLogo from '@/assets/logo.png';
+import { LoadingSpinner, AlertMessage } from '@/components/shared';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import smartRoutineLogo from '@/assets/logo.png';
-import { LoginProps } from '@/typings';
-import { LoadingSpinner, AlertMessage } from '@/components/shared';
 import { useAuth } from '@/context';
 import { getErrorMessage } from '@/services';
+import { LoginProps } from '@/typings';
 
 export const Login: React.FC<LoginProps> = ({ onNavigate }) => {
   const { login } = useAuth();

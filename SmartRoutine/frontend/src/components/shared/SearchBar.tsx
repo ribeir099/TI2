@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
 import { Search, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
 import { cn } from '../ui/utils';
+
 import { SearchBarProps } from '@/typings';
 
 export const SearchBar: React.FC<SearchBarProps> = ({

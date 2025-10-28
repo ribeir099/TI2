@@ -1,13 +1,3 @@
-import React, { useState, useMemo } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { useFood } from '@/context';
 import {
   Plus,
   Package,
@@ -21,11 +11,22 @@ import {
   Edit,
   Trash2
 } from 'lucide-react';
-import { Registra, PantryProps, SortBy, SortOrder, ViewMode } from '@/typings';
-import { downloadPantryCSV, downloadPantryReport, formatDate, formatQuantity, UNITS } from '@/utils';
+import React, { useState, useMemo } from 'react';
+
 import { Navigation, PageHeader } from '@/components/layout';
 import { LoadingSpinner, SearchBar, FilterSelect, EmptyState, FoodItemCard, ExpiryBadge, ConfirmDialog } from '@/components/shared';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { useFood } from '@/context';
 import { useToast, useDebounce, usePagination } from '@/hooks';
+import { Registra, PantryProps, SortBy, SortOrder, ViewMode } from '@/typings';
+import { downloadPantryCSV, downloadPantryReport, formatDate, formatQuantity, UNITS } from '@/utils';
 
 
 export const Pantry: React.FC<PantryProps> = ({ onNavigate }) => {

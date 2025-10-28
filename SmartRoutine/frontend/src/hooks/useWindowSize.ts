@@ -1,5 +1,6 @@
-import { WindowSize } from '@/typings';
 import { useState, useEffect } from 'react';
+
+import { WindowSize } from '@/typings';
 
 /**
 * Hook para obter dimensões da janela

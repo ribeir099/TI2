@@ -1,5 +1,6 @@
-import { SetValue } from '@/typings';
 import { useState, useEffect, useCallback } from 'react';
+
+import { SetValue } from '@/typings';
 
 /**
 * Hook para gerenciar dados no localStorage

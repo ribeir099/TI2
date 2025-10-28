@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../ui/breadcrumb';
 import { ChevronRight } from 'lucide-react';
+import React, { ReactNode } from 'react';
+
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../ui/breadcrumb';
 
 interface BreadcrumbItem {
     label: string;

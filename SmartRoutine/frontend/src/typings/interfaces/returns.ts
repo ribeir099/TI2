@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+
 import { UseAsyncState } from "./states";
 
 export interface UseAsyncReturn<T> extends UseAsyncState<T> {

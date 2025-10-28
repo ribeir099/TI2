@@ -1,5 +1,6 @@
 import { api } from './api';
 import { handleApiError } from './errorHandler';
+
 import { ReceitaFavorita } from '@/typings';
 
 export const favoritasService = {

@@ -1,13 +1,3 @@
-import React, { useState, useMemo } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
-import { Separator } from '@/components/ui/separator';
 import {
   Plus,
   ChefHat,
@@ -23,11 +13,22 @@ import {
   Utensils,
   Package
 } from 'lucide-react';
-import { AIRecipeOption, Receita, RecipeModalStep, RecipesProps, ViewMode } from '@/typings';
+import React, { useState, useMemo } from 'react';
+
 import { Navigation, PageHeader } from '@/components/layout';
 import { LoadingSpinner, SearchBar, FilterSelect, EmptyState, RecipeCard, ConfirmDialog } from '@/components/shared';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Separator } from '@/components/ui/separator';
+import { Textarea } from '@/components/ui/textarea';
 import {useRecipe, useFood} from '@/context'
 import { useToast, useDebounce, usePagination } from '@/hooks';
+import { AIRecipeOption, Receita, RecipeModalStep, RecipesProps, ViewMode } from '@/typings';
 import { calculateRecipeCompatibility, DIFFICULTY_LEVELS, MEAL_TYPES, RECIPE_TAGS, formatDuration } from '@/utils';
 
 export const Recipes: React.FC<RecipesProps> = ({ onNavigate }) => {

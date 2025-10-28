@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { Badge } from '../ui/badge';
 import { cn } from '../ui/utils';
+
 import { ExpiryBadgeProps } from '@/typings';
 
 export const ExpiryBadge: React.FC<ExpiryBadgeProps> = ({

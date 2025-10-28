@@ -1,5 +1,6 @@
-import { ScrollPosition } from '@/typings';
 import { useState, useEffect } from 'react';
+
+import { ScrollPosition } from '@/typings';
 
 /**
 * Hook para obter posição do scroll

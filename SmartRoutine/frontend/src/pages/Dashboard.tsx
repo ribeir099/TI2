@@ -1,7 +1,3 @@
-import React, { useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import {
   Package,
   AlertTriangle,
@@ -14,8 +10,13 @@ import {
   Sparkles,
   AlertCircle
 } from 'lucide-react';
-import { LoadingSpinner, StatsCard, AlertMessage, EmptyState, RecipeCard } from '@/components/shared';
+import React, { useEffect } from 'react';
+
 import { Navigation } from '@/components/layout';
+import { LoadingSpinner, StatsCard, AlertMessage, EmptyState, RecipeCard } from '@/components/shared';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth, useFood, useRecipe, useNotification } from '@/context';
 import { DashboardProps } from '@/typings';
 import { calculatePantryStats, formatDate } from '@/utils';

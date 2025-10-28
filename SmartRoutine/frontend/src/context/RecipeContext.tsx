@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { Receita, ReceitaFavorita, RecipeContextType } from '@/typings';
+
 import { useAuth } from './AuthContext';
 import { useNotification } from './NotificationContext';
+
 import { receitaService, favoritasService } from '@/services';
+import { Receita, ReceitaFavorita, RecipeContextType } from '@/typings';
 
 
 

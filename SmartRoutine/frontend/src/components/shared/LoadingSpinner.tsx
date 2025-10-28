@@ -1,6 +1,8 @@
-import React from 'react';
 import { Loader2 } from 'lucide-react';
+import React from 'react';
+
 import { cn } from '../ui/utils';
+
 import { LoadingSpinnerProps } from '@/typings';
 
 const sizeClasses = {

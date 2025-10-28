@@ -1,10 +1,12 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Button } from '../ui/button';
-import { Badge } from '../ui/badge';
 import { Heart, Clock, Users, ChefHat, Trash2 } from 'lucide-react';
-import { ImageWithFallback } from '@/assets/ImageWithFallback';
+import React from 'react';
+
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { cn } from '../ui/utils';
+
+import { ImageWithFallback } from '@/assets/ImageWithFallback';
 import { RecipeCardProps } from '@/typings';
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({

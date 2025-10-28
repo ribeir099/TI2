@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { AuthProvider } from './AuthContext';
 import { FoodProvider } from './FoodContext';
-import { RecipeProvider } from './RecipeContext';
 import { NotificationProvider } from './NotificationContext';
+import { RecipeProvider } from './RecipeContext';
 import { ThemeProvider } from './ThemeContext';
+
 import { AppProviderProps } from '@/typings';
 
 
