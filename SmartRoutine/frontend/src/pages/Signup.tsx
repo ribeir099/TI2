@@ -1,23 +1,18 @@
 import React, { useState } from 'react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { Checkbox } from '../components/ui/checkbox';
-import { Separator } from '../components/ui/separator';
-import { Progress } from '../components/ui/progress';
-import { AlertMessage } from '../components/shared/AlertMessage';
-import { LoadingSpinner } from '../components/shared/LoadingSpinner';
-import { useAuth } from '../context/AuthContext';
-import { getErrorMessage } from '../services/errorHandler';
-import { isValidEmail, isStrongPassword } from '../utils/validators';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Separator } from '@/components/ui/separator';
+import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, User, Mail, Lock, Calendar, Eye, EyeOff, CheckCircle, XCircle } from 'lucide-react';
-import smartRoutineLogo from '../assets/logo.png';
-import { Page } from '@/typings';
-
-interface SignupProps {
-    onNavigate: (page: Page) => void;
-}
+import smartRoutineLogo from '@/assets/logo.png';
+import { SignupProps } from '@/typings';
+import { LoadingSpinner, AlertMessage } from '@/components/shared';
+import { useAuth } from '@/context';
+import { getErrorMessage } from '@/services';
+import { isValidEmail, isStrongPassword } from '@/utils';
 
 export const Signup: React.FC<SignupProps> = ({ onNavigate }) => {
   const { signup } = useAuth();

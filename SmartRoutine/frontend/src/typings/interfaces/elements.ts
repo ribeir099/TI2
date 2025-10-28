@@ -17,3 +17,15 @@ export interface WindowSize {
     width: number;
     height: number;
 }
+
+export interface ProfileFormData {
+    nome: string;
+    email: string;
+    dataNascimento: string;
+}
+
+export interface PasswordFormData {
+    currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+}

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Footer } from '../components/layout/Footer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Footer } from '@/components/layout/Footer';
 import {
   Calendar,
   ChefHat,
@@ -14,13 +14,9 @@ import {
   TrendingUp,
   Clock
 } from 'lucide-react';
-import { ImageWithFallback } from '../assets/ImageWithFallback';
-import smartRoutineLogo from '../assets/logo.png';
-import { Page } from '@/typings';
-
-interface HomeProps {
-    onNavigate: (page: Page) => void;
-}
+import { ImageWithFallback } from '@/assets/ImageWithFallback';
+import smartRoutineLogo from '@/assets/logo.png';
+import { HomeProps } from '@/typings';
 
 export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const features = [

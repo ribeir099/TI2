@@ -1,57 +1,32 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { Badge } from '../components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table';
-import { Navigation } from '../components/layout/Navigation';
-import { PageHeader } from '../components/layout/PageHeader';
-import { SearchBar } from '../components/shared/SearchBar';
-import { FilterSelect } from '../components/shared/FilterSelect';
-import { FoodItemCard } from '../components/shared/FoodItemCard';
-import { EmptyState } from '../components/shared/EmptyState';
-import { LoadingSpinner } from '../components/shared/LoadingSpinner';
-import { ConfirmDialog } from '../components/shared/ConfirmDialog';
-import { ExpiryBadge } from '../components/shared/ExpiryBadge';
-import { AlertMessage } from '../components/shared/AlertMessage';
-import { useFood } from '../context/FoodContext';
-import { useToast } from '../hooks/useToast';
-import { usePagination } from '../hooks/usePagination';
-import { useDebounce } from '../hooks/useDebounce';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { useFood } from '@/context';
 import {
   Plus,
   Package,
   Download,
-  Filter,
   Grid3x3,
   List,
   AlertTriangle,
   CheckCircle,
-  Calendar,
   TrendingUp,
-  Search,
   X,
   Edit,
-  Trash2,
-  BarChart3
+  Trash2
 } from 'lucide-react';
-import { Registra, Alimento, Page } from '../typings';
-import { formatDate } from '../utils/date';
-import { formatQuantity } from '../utils/formatters';
-import { downloadPantryCSV, downloadPantryReport } from '../utils/export';
-import { FOOD_CATEGORIES, UNITS } from '../utils/constants';
+import { Registra, PantryProps, SortBy, SortOrder, ViewMode } from '@/typings';
+import { downloadPantryCSV, downloadPantryReport, formatDate, formatQuantity, UNITS } from '@/utils';
+import { Navigation, PageHeader } from '@/components/layout';
+import { LoadingSpinner, SearchBar, FilterSelect, EmptyState, FoodItemCard, ExpiryBadge, ConfirmDialog } from '@/components/shared';
+import { useToast, useDebounce, usePagination } from '@/hooks';
 
-interface PantryProps {
-    onNavigate: (page: Page) => void;
-}
-
-type ViewMode = 'grid' | 'list';
-type SortBy = 'name' | 'date' | 'expiry' | 'quantity';
-type SortOrder = 'asc' | 'desc';
 
 export const Pantry: React.FC<PantryProps> = ({ onNavigate }) => {
   const {

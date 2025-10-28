@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { Badge } from '../components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Separator } from '../components/ui/separator';
-import { Switch } from '../components/ui/switch';
-import { Navigation } from '../components/layout/Navigation';
-import { PageHeader } from '../components/layout/PageHeader';
-import { AlertMessage } from '../components/shared/AlertMessage';
-import { LoadingSpinner } from '../components/shared/LoadingSpinner';
-import { ConfirmDialog } from '../components/shared/ConfirmDialog';
-import { StatsCard } from '../components/shared/StatsCard';
-import { useAuth } from '../context/AuthContext';
-import { useFood } from '../context/FoodContext';
-import { useRecipe } from '../context/RecipeContext';
-import { useToast } from '../hooks/useToast';
-import { useForm, validators } from '../hooks/useForm';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Separator } from '@/components/ui/separator';
+import { Switch } from '@/components/ui/switch';
 import {
   User,
   Mail,
@@ -39,28 +28,14 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
-import { getInitials } from '../utils/helpers';
-import { formatDate, calculateAge } from '../utils/date';
-import { isValidEmail, isStrongPassword } from '../utils/validators';
-import { getErrorMessage } from '../services/errorHandler';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Page } from '@/typings';
-
-interface ProfileProps {
-    onNavigate: (page: Page) => void;
-}
-
-interface ProfileFormData {
-    nome: string;
-    email: string;
-    dataNascimento: string;
-}
-
-interface PasswordFormData {
-    currentPassword: string;
-    newPassword: string;
-    confirmPassword: string;
-}
+import { PasswordFormData, ProfileFormData, ProfileProps } from '@/typings';
+import { calculateAge, getInitials, formatDate } from '@/utils';
+import { getErrorMessage } from '@/services';
+import { Navigation, PageHeader } from '@/components/layout';
+import { useAuth, useFood, useRecipe } from '@/context';
+import { useForm, useToast, validators } from '@/hooks';
+import { LoadingSpinner, StatsCard } from '@/components/shared';
 
 export const Profile: React.FC<ProfileProps> = ({ onNavigate }) => {
   const { user, updateUser, deleteAccount, logout } = useAuth();

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
-
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import {
   Package,
   AlertTriangle,
@@ -15,16 +14,11 @@ import {
   Sparkles,
   AlertCircle
 } from 'lucide-react';
-
 import { LoadingSpinner, StatsCard, AlertMessage, EmptyState, RecipeCard } from '@/components/shared';
 import { Navigation } from '@/components/layout';
 import { useAuth, useFood, useRecipe, useNotification } from '@/context';
-import { Page } from '@/typings';
+import { DashboardProps } from '@/typings';
 import { calculatePantryStats, formatDate } from '@/utils';
-
-interface DashboardProps {
-  onNavigate: (page: Page) => void;
-}
 
 export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
   const { user } = useAuth();

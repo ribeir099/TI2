@@ -1,27 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { Badge } from '../components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { Textarea } from '../components/ui/textarea';
-import { Separator } from '../components/ui/separator';
-import { Navigation } from '../components/layout/Navigation';
-import { PageHeader } from '../components/layout/PageHeader';
-import { SearchBar } from '../components/shared/SearchBar';
-import { FilterSelect } from '../components/shared/FilterSelect';
-import { RecipeCard } from '../components/shared/RecipeCard';
-import { EmptyState } from '../components/shared/EmptyState';
-import { LoadingSpinner } from '../components/shared/LoadingSpinner';
-import { ConfirmDialog } from '../components/shared/ConfirmDialog';
-import { useRecipe } from '../context/RecipeContext';
-import { useFood } from '../context/FoodContext';
-import { useToast } from '../hooks/useToast';
-import { usePagination } from '../hooks/usePagination';
-import { useDebounce } from '../hooks/useDebounce';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { Separator } from '@/components/ui/separator';
 import {
   Plus,
   ChefHat,
@@ -30,30 +16,19 @@ import {
   Users,
   Sparkles,
   X,
-  TrendingUp,
-  Filter,
   Grid3x3,
   List,
-  Star,
   BookOpen,
   Flame,
   Utensils,
-  Search,
   Package
 } from 'lucide-react';
-import { Page, Receita } from '../typings';
-import { ImageWithFallback } from '../assets/ImageWithFallback';
-import { DIFFICULTY_LEVELS, MEAL_TYPES, RECIPE_TAGS } from '../utils/constants';
-import { formatDuration } from '../utils/formatters';
-import { calculateRecipeCompatibility } from '../utils/calculations';
-
-interface RecipesProps {
-    onNavigate: (page: Page) => void;
-}
-
-type ViewMode = 'grid' | 'list';
-type RecipeModalStep = 'choice' | 'manual' | 'ai';
-type AIRecipeOption = 'pantry-only' | 'pantry-based' | 'custom' | null;
+import { AIRecipeOption, Receita, RecipeModalStep, RecipesProps, ViewMode } from '@/typings';
+import { Navigation, PageHeader } from '@/components/layout';
+import { LoadingSpinner, SearchBar, FilterSelect, EmptyState, RecipeCard, ConfirmDialog } from '@/components/shared';
+import {useRecipe, useFood} from '@/context'
+import { useToast, useDebounce, usePagination } from '@/hooks';
+import { calculateRecipeCompatibility, DIFFICULTY_LEVELS, MEAL_TYPES, RECIPE_TAGS, formatDuration } from '@/utils';
 
 export const Recipes: React.FC<RecipesProps> = ({ onNavigate }) => {
   const {

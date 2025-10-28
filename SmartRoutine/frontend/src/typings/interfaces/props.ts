@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { AlertType, ValidationRule } from "../types";
+import { AlertType, Page, ValidationRule } from "../types";
 import { LucideIcon } from "lucide-react";
 import { FilterOption } from "./elements";
 import { Receita, Registra } from "./entities";
@@ -110,4 +110,32 @@ export interface UsePaginationProps<T> {
     items: T[];
     itemsPerPage?: number;
     initialPage?: number;
+}
+
+export interface DashboardProps {
+  onNavigate: (page: Page) => void;
+}
+
+export interface HomeProps {
+    onNavigate: (page: Page) => void;
+}
+
+export interface LoginProps {
+  onNavigate: (page: Page) => void;
+}
+
+export interface PantryProps {
+    onNavigate: (page: Page) => void;
+}
+
+export interface ProfileProps {
+    onNavigate: (page: Page) => void;
+}
+
+export interface RecipesProps {
+    onNavigate: (page: Page) => void;
+}
+
+export interface SignupProps {
+    onNavigate: (page: Page) => void;
 }
