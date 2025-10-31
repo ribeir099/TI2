@@ -8,6 +8,7 @@ import spark.Request;
 import spark.Response;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class UsuarioService {
@@ -96,6 +97,8 @@ public class UsuarioService {
                 return gson.toJson(new ErrorResponse("Email já cadastrado"));
             }
 
+            usuario.setDataAdicao(LocalDate.now());
+
             if (usuarioDAO.insert(usuario)) {
                 response.status(201);
                 return gson.toJson(new SuccessResponse("Usuário cadastrado com sucesso"));
@@ -125,23 +128,24 @@ public class UsuarioService {
                 return gson.toJson(new ErrorResponse("Usuário não encontrado"));
             }
 
-            Usuario usuario = gson.fromJson(request.body(), Usuario.class);
-            usuario.setId(id);
+            Usuario usuarioNovo = gson.fromJson(request.body(), Usuario.class);
+            usuarioExistente.mergeWith(usuarioNovo);
+            usuarioExistente.setId(id);
 
             // Validações
-            if (usuario.getNome() == null || usuario.getNome().trim().isEmpty()) {
+            if (usuarioExistente.getNome() == null || usuarioExistente.getNome().trim().isEmpty()) {
                 response.status(400);
                 return gson.toJson(new ErrorResponse("Nome é obrigatório"));
             }
 
             // Verifica se o email já está sendo usado por outro usuário
-            Usuario usuarioComEmail = usuarioDAO.getByEmail(usuario.getEmail());
+            Usuario usuarioComEmail = usuarioDAO.getByEmail(usuarioExistente.getEmail());
             if (usuarioComEmail != null && usuarioComEmail.getId() != id) {
                 response.status(409);
                 return gson.toJson(new ErrorResponse("Email já está em uso"));
             }
 
-            if (usuarioDAO.update(usuario)) {
+            if (usuarioDAO.update(usuarioExistente)) {
                 response.status(200);
                 return gson.toJson(new SuccessResponse("Usuário atualizado com sucesso"));
             } else {

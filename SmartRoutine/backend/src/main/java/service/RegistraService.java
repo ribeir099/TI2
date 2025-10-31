@@ -148,7 +148,7 @@ public class RegistraService {
                 return gson.toJson(new ErrorResponse("Data de compra é obrigatória"));
             }
 
-            if (registra.getQuantidade() == null || registra.getQuantidade().doubleValue() <= 0) {
+            if (registra.getQuantidade() <= 0) {
                 response.status(400);
                 return gson.toJson(new ErrorResponse("Quantidade deve ser maior que zero"));
             }
@@ -182,16 +182,17 @@ public class RegistraService {
                 return gson.toJson(new ErrorResponse("Registro não encontrado"));
             }
 
-            Registra registra = gson.fromJson(request.body(), Registra.class);
-            registra.setId(id);
+            Registra registraNovo = gson.fromJson(request.body(), Registra.class);
+            registraExistente.mergeWith(registraNovo);
+            registraExistente.setId(id);
 
             // Validações
-            if (registra.getQuantidade() == null || registra.getQuantidade().doubleValue() <= 0) {
+            if (registraExistente.getQuantidade() <= 0) {
                 response.status(400);
                 return gson.toJson(new ErrorResponse("Quantidade deve ser maior que zero"));
             }
 
-            if (registraDAO.update(registra)) {
+            if (registraDAO.update(registraExistente)) {
                 response.status(200);
                 return gson.toJson(new SuccessResponse("Registro atualizado com sucesso"));
             } else {

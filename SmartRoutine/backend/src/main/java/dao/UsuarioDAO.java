@@ -3,6 +3,7 @@ package dao;
 import model.Usuario;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class UsuarioDAO extends DAO {
      */
     public boolean insert(Usuario usuario) {
         boolean status = false;
-        String sql = "INSERT INTO usuario (nome, email, senha, data_nascimento) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (nome, email, senha, data_nascimento, data_adicao) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement ps = conexao.prepareStatement(sql);
@@ -26,6 +27,7 @@ public class UsuarioDAO extends DAO {
             ps.setString(2, usuario.getEmail());
             ps.setString(3, usuario.getSenha());
             ps.setDate(4, Date.valueOf(usuario.getDataNascimento()));
+            ps.setDate(5, Date.valueOf(usuario.getDataAdicao()));
 
             ps.executeUpdate();
             ps.close();
@@ -55,6 +57,8 @@ public class UsuarioDAO extends DAO {
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setDataNascimento(rs.getDate("data_nascimento").toLocalDate());
+                usuario.setDataAdicao(rs.getDate("data_adicao").toLocalDate());
+
                 usuarios.add(usuario);
             }
             st.close();
@@ -83,6 +87,7 @@ public class UsuarioDAO extends DAO {
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setDataNascimento(rs.getDate("data_nascimento").toLocalDate());
+                usuario.setDataAdicao(rs.getDate("data_adicao").toLocalDate());
             }
             ps.close();
         } catch (SQLException e) {
@@ -110,6 +115,7 @@ public class UsuarioDAO extends DAO {
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setDataNascimento(rs.getDate("data_nascimento").toLocalDate());
+                usuario.setDataAdicao(rs.getDate("data_adicao").toLocalDate());
             }
             ps.close();
         } catch (SQLException e) {
@@ -186,6 +192,7 @@ public class UsuarioDAO extends DAO {
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setDataNascimento(rs.getDate("data_nascimento").toLocalDate());
+                usuario.setDataAdicao(rs.getDate("data_adicao").toLocalDate());
             }
             ps.close();
         } catch (SQLException e) {
